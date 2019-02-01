@@ -9,18 +9,22 @@ const assets = [];
 const trees = [];
 const pushedTents = [];
 
-const samplePlayer = [
-	{
-		"info": { "player":'<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/381425282&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>'}
-	}
-];
+// const samplePlayer = [
+// 	{
+// 		"info": { "player":'<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/274156622&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>'}
+// 	}
+// ];
+
+let loadedPlaylists;
 
 function preload() {
-   let img = loadImage('./assets/tente1.png', function(){ assets.push(img); });
-	 let img2 = loadImage('./assets/tente2.png', function(){ assets.push(img2); });
-	 let img3 = loadImage('./assets/arbre1.png', function(){ trees.push(img3); });
-	 let img4 = loadImage('./assets/arbre2.png', function(){ trees.push(img4); });
-	 let img5= loadImage('./assets/arbre3.png', function(){ trees.push(img5); });
+	loadedPlaylists = loadJSON('playlists.json');
+
+  let img = loadImage('./assets/tente1.png', function(){assets.push(img); });
+	let img2 = loadImage('./assets/tente2.png', function(){assets.push(img2); });
+	let img3 = loadImage('./assets/arbre1.png', function(){trees.push(img3); });
+	let img4 = loadImage('./assets/arbre2.png', function(){trees.push(img4); });
+	let img5= loadImage('./assets/arbre3.png', function(){trees.push(img5); });
 }
 
 
@@ -35,10 +39,17 @@ function setup() {
 		let arbre = new Bubble(random(width), random(height), "arbre", "none");
 		arbre.display();
 	}
-	for(let i = 0; i < 16; i++) {
-		let tente = new Bubble(random(200, width - 200), random(100, height - 100), "tente", samplePlayer[0].info);
+
+	for( let i = 0; i < loadedPlaylists[0].length; i++){
+		let tente = new Bubble(random(200, width - 200), random(100, height - 100), "tente", loadedPlaylists[0][i].info);
+		console.log(tente);
 		pushedTents.push(tente);
 	}
+
+	// for(let i = 0; i < 16; i++) {
+	// 	let tente = new Bubble(random(200, width - 200), random(100, height - 100), "tente", samplePlayer[0].info);
+	// 	pushedTents.push(tente);
+	// }
 
 	getInfo = createDiv('');
 	getInfo.id("product-info");
