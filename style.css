@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin:0;
+  padding:0;
+  overflow: hidden;
+}
+canvas {
+  margin:auto;
+  position: absolute;
+}
+#main-container{
+  width: 1280px;
+  height: 720px;
+}
+
+h2 {
+    font-weight: 200;
+}
+
+#product-info{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  background: #ffffff8f;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: visibility 1s, opacity 0.5s;
+}
+#infoBox{
+
+  display: flex;
+
+  /* background: #fff; */
+  width: 500px;
+  /*height: 80%;*/
+  padding: 10px;
+  border-radius: 6px;
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #333;
+}
+
+.in-desc{
+  flex: 1;
+  padding: 20px;
+}
+
+.in-img > img {
+  max-width: 200px;
+}
