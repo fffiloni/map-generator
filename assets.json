@@ -1,0 +1,9 @@
+[
+  [
+    {"name": "arbre1", "file": "arbre1.png", "type": "arbre"},
+    {"name": "arbre2", "file": "arbre2.png", "type": "arbre"},
+    {"name": "arbre3", "file": "arbre3.png", "type": "arbre"},
+    {"name": "tente1", "file": "tente1.png", "type": "tente"},
+    {"name": "tente2", "file": "tente2.png", "type": "tente"}
+  ]
+]

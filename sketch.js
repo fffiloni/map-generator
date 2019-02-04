@@ -16,15 +16,28 @@ const pushedTents = [];
 // ];
 
 let loadedPlaylists;
+let loadedAssets;
 
 function preload() {
 	loadedPlaylists = loadJSON('playlists.json');
+	loadedAssets = loadJSON('assets.json', function(){
+		for (let i = 0; i < loadedAssets[0].length; i++){
+			if (loadedAssets[0][i].type === "arbre"){
+				let img = loadImage('./assets/' + loadedAssets[0][i].file + '', function(){trees.push(img); });
+				console.log(loadedAssets[0][i].file);
+			} else if (loadedAssets[0][i].type === "tente"){
+				let img = loadImage('./assets/' + loadedAssets[0][i].file + '', function(){assets.push(img); });
+				console.log(loadedAssets[0][i].file);
+			}
+		}
+	});
 
-  let img = loadImage('./assets/tente1.png', function(){assets.push(img); });
-	let img2 = loadImage('./assets/tente2.png', function(){assets.push(img2); });
-	let img3 = loadImage('./assets/arbre1.png', function(){trees.push(img3); });
-	let img4 = loadImage('./assets/arbre2.png', function(){trees.push(img4); });
-	let img5= loadImage('./assets/arbre3.png', function(){trees.push(img5); });
+
+  // let img = loadImage('./assets/tente1.png', function(){assets.push(img); });
+	// let img2 = loadImage('./assets/tente2.png', function(){assets.push(img2); });
+	// let img3 = loadImage('./assets/arbre1.png', function(){trees.push(img3); });
+	// let img4 = loadImage('./assets/arbre2.png', function(){trees.push(img4); });
+	// let img5= loadImage('./assets/arbre3.png', function(){trees.push(img5); });
 }
 
 
